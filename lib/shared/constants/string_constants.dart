@@ -28,4 +28,7 @@ class StringConstants {
   static const String skip = 'Skip';
   static const String doctor = 'Doctors';
   static const String save = 'Save';
+  static const String selectYourTime = 'Select your Time';
+  static const String contactClinic = 'Contact Clinic';
+  static const String selectTime = 'Select Time';
 }

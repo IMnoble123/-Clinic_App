@@ -14,6 +14,9 @@ import 'package:at_clinic/features/welcome/screen/welcome_screen_one.dart';
 import 'package:at_clinic/features/welcome/screen/welcome_screen_three.dart';
 import 'package:at_clinic/features/welcome/screen/welcome_screen_two.dart';
 
+import '../features/doctors_list/screen/select_time_screen.dart';
+import '../features/doctors_list/screen/selected_doctor_screen.dart';
+
 class Routes {
   static var routes = {
     LoginScreen.routeName: (ctx) => const LoginScreen(),
@@ -30,7 +33,9 @@ class Routes {
     ProfileScreen.routeName:(ctx)=> const ProfileScreen(),
     EditProfileScreen.routeName:(ctx)=> const EditProfileScreen(),
     BottomNavBarScreen.routeName:(ctx)=> const BottomNavBarScreen(),
-    CasesScreen.routeName:(ctx)=> const CasesScreen()
+    CasesScreen.routeName:(ctx)=> const CasesScreen(),
+    SelectedDoctorScreen.routeName: (ctx) => const SelectedDoctorScreen(),
+    SelectTimeScreen.routeName: (ctx) => const SelectTimeScreen(),
 
   };
 }

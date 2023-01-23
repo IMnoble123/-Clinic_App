@@ -49,6 +49,9 @@ class $AssetsImagesGen {
   AssetGenImage get circleBackground =>
       const AssetGenImage('assets/images/circle background.png');
 
+  /// File path: assets/images/doctor.jpeg
+  AssetGenImage get doctor => const AssetGenImage('assets/images/doctor.jpeg');
+
   /// File path: assets/images/forgot_password.png
   AssetGenImage get forgotPassword =>
       const AssetGenImage('assets/images/forgot_password.png');
@@ -88,6 +91,7 @@ class $AssetsImagesGen {
         applogo,
         backgroundImg,
         circleBackground,
+        doctor,
         forgotPassword,
         loginIllustration,
         otpImage,

@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:at_clinic/features/auth/forgot_password/screens/set_new_password_screen.dart';
+import 'package:at_clinic/features/auth/login/screen/login_screen.dart';
 import 'package:at_clinic/features/profile/edit_profile_screen.dart';
 import 'package:at_clinic/gen/colors.gen.dart';
 import 'package:flutter/material.dart';
@@ -15,12 +17,10 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-
-  
   double height = 0.0;
   double width = 0.0;
 
-@override
+  @override
   void initState() {
     height = SizeConfig.safeBlockVertical!;
     width = SizeConfig.safeBlockHorizontal!;
@@ -28,14 +28,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-      ),
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.white,
+        ),
         body: createBody());
   }
 
@@ -60,7 +59,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
             title: 'Edit Profile',
             onTap: () {},
           ),
-          ProfileItem(icon: Icons.lock, title: 'Password', onTap: () {}),
+          ProfileItem(
+              icon: Icons.lock,
+              title: 'Password',
+              onTap: () {
+                Navigator.of(context).pushNamed(SetPasswordScreen.routeName);
+              }),
           ProfileItem(
               icon: Icons.calendar_month,
               title: 'Calender Settings',
@@ -76,9 +80,45 @@ class _ProfileScreenState extends State<ProfileScreen> {
               icon: Icons.switch_account,
               title: 'Switch Account',
               onTap: () {}),
-          ProfileItem(icon: Icons.logout, title: 'Log Out', onTap: () {}),
+          ProfileItem(
+              icon: Icons.logout,
+              title: 'Log Out',
+              onTap: () {
+                showLogoutDialog(context);
+              }),
         ])
       ],
+    );
+  }
+
+  showLogoutDialog(context) {
+    const textStyle = TextStyle(color: ColorName.colorLoginButton);
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Logout'),
+          content: const Text('Are you sure you want to logout?'),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  'Cancel',
+                  style: textStyle,
+                )),
+            TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(LoginScreen.routeName);
+                },
+                child: const Text(
+                  'Ok',
+                  style: textStyle,
+                ))
+          ],
+        );
+      },
     );
   }
 
